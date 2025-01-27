@@ -1,0 +1,50 @@
+@use "normalize.scss" as normalize;
+@use "_variables" as variables;
+@use "_mixins" as mixins;
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: variables.$typo-base;
+	font-size: 62.5%;
+	line-height: 1.4;
+	hyphens: auto;
+	scroll-behavior: smooth;
+}
+
+body {
+	height: 100vh;
+	background-color: variables.$light-grey;
+	font-size: 1.6em;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	padding: 3rem;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
+		height: 30rem;
+		background-image: url("./../assets/images/bg.jpg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: 2em;
+		color: white;
+	}
+}
