@@ -1,0 +1,40 @@
+@use "./../../styles/mixins" as mixins;
+@use "./../../styles/variables" as variables;
+
+.todoItem {
+	position: relative;
+}
+
+.todoItemContent {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 2rem;
+	background-color: white;
+	transition: transform 0.3s ease-out;
+
+	&.is-open {
+		transform: translateX(-15rem);
+	}
+
+	p {
+		flex: 1 1 auto;
+		margin: 0;
+	}
+
+	button {
+		flex: 0 0 auto;
+		@include mixins.flex-center;
+		padding: 1rem;
+		border: 0 none;
+		border-radius: 50px;
+		background-color: white;
+		box-shadow: variables.$shadow1;
+
+		span {
+			@include mixins.assistive-text;
+		}
+	}
+}

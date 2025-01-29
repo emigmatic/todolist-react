@@ -1,0 +1,48 @@
+@use "./../../../styles/variables" as variables;
+@use "./../../../styles/mixins" as mixins;
+
+.todoMenu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	width: 15rem;
+	background-color: white;
+	box-shadow: variables.$shadow2;
+}
+
+.btn {
+	@include mixins.flex-center;
+	padding: 0.5rem;
+	border: 1px solid;
+	border-radius: 50px;
+	background-color: white;
+	font-size: 2rem;
+	transition: all 0.2s ease-out;
+
+	&.btnDelete {
+		color: red;
+
+		&:hover {
+			background-color: red;
+			color: white;
+		}
+	}
+
+	&.btnComplete {
+		color: variables.$green;
+
+		&:hover {
+			background-color: variables.$green;
+			color: white;
+		}
+	}
+
+	span {
+		@include mixins.assistive-text;
+	}
+}
