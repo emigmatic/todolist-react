@@ -1,14 +1,18 @@
-import TodoListItem from "./TodoListItem"
+import TodoItem from "./TodoItem"
 import classes from "./styles.module.scss"
 
-function TodoList({ todos }) {
+function TodoList({ todos, deleteTodo, toggleComplete }) {
 	return (
 		<div className={classes.todoList}>
 			<ul>
 				{todos.map((todo) => {
 					return (
 						<li key={todo.id}>
-							<TodoListItem todo={todo} />
+							<TodoItem
+								todo={todo}
+								deleteTodo={deleteTodo}
+								toggleComplete={toggleComplete}
+							/>
 						</li>
 					)
 				})}

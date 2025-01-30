@@ -1,8 +1,16 @@
-@use "./../../styles/mixins" as mixins;
-@use "./../../styles/variables" as variables;
+@use "./../../../styles/mixins" as mixins;
+@use "./../../../styles/variables" as variables;
 
 .todoItem {
 	position: relative;
+
+	&.isCompleted {
+		color: #777;
+
+		p {
+			text-decoration: line-through;
+		}
+	}
 }
 
 .todoItemContent {
@@ -32,9 +40,5 @@
 		border-radius: 50px;
 		background-color: white;
 		box-shadow: variables.$shadow1;
-
-		span {
-			@include mixins.assistive-text;
-		}
 	}
 }

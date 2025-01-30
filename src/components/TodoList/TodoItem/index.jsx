@@ -6,7 +6,7 @@ import {
 } from "react-icons/io5"
 import TodoMenu from "./TodoMenu"
 
-function TodoListItem({ todo }) {
+function TodoItem({ todo, deleteTodo, toggleComplete }) {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const toggle = () => {
@@ -14,7 +14,11 @@ function TodoListItem({ todo }) {
 	}
 
 	return (
-		<div className={classes.todoItem}>
+		<div
+			className={`${classes.todoItem} ${
+				todo.completed ? classes.isCompleted : ""
+			}`}
+		>
 			<div
 				className={`${classes.todoItemContent} ${
 					isOpen ? classes["is-open"] : ""
@@ -27,12 +31,19 @@ function TodoListItem({ todo }) {
 					) : (
 						<MoreIcon aria-hidden="true" />
 					)}
-					<span>{isOpen ? "Fermer" : "Ouvrir"} actions</span>
+					<span className="assistive-text">
+						{isOpen ? "Fermer" : "Ouvrir"} actions
+					</span>
 				</button>
 			</div>
-			<TodoMenu />
+			<TodoMenu
+				todo={todo}
+				deleteTodo={deleteTodo}
+				toggleComplete={toggleComplete}
+				closeMenu={setIsOpen}
+			/>
 		</div>
 	)
 }
 
-export default TodoListItem
+export default TodoItem

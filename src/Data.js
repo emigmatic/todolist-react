@@ -7,7 +7,7 @@ export const TODOS = [
 	{
 		id: 2,
 		text: "Please like this video",
-		completed: false,
+		completed: true,
 	},
 	{
 		id: 3,

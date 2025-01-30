@@ -1,5 +1,5 @@
-@use "./../../../styles/variables" as variables;
-@use "./../../../styles/mixins" as mixins;
+@use "./../../../../styles/variables" as variables;
+@use "./../../../../styles/mixins" as mixins;
 
 .todoMenu {
 	position: absolute;
@@ -36,13 +36,10 @@
 	&.btnComplete {
 		color: variables.$green;
 
-		&:hover {
+		&:hover,
+		&.isActive {
 			background-color: variables.$green;
 			color: white;
 		}
-	}
-
-	span {
-		@include mixins.assistive-text;
 	}
 }
